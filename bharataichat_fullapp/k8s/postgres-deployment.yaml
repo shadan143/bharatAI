@@ -1,0 +1,26 @@
+  apiVersion: apps/v1
+  kind: Deployment
+  metadata:
+name: bharatai-db
+  spec:
+    replicas: 1
+    selector:
+  matchLabels:
+    app: bharatai-db
+    template:
+  metadata:
+    labels:
+      app: bharatai-db
+  spec:
+    containers:
+    - name: postgres
+      image: postgres:15
+      env:
+      - name: POSTGRES_PASSWORD
+        value: postgres
+      - name: POSTGRES_USER
+        value: postgres
+      - name: POSTGRES_DB
+        value: bharatai
+      ports:
+      - containerPort: 5432

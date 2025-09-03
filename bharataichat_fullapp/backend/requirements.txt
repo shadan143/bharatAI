@@ -1,0 +1,9 @@
+fastapi
+uvicorn[standard]
+sqlalchemy
+psycopg2-binary
+pydantic
+sentence_transformers
+
+openai
+\nlangdetect\nalembic\npyjwt\ntwilio

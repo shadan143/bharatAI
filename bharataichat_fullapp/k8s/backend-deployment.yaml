@@ -1,0 +1,22 @@
+  apiVersion: apps/v1
+  kind: Deployment
+  metadata:
+name: bharatai-backend
+  spec:
+    replicas: 2
+    selector:
+  matchLabels:
+    app: bharatai-backend
+    template:
+  metadata:
+    labels:
+      app: bharatai-backend
+  spec:
+    containers:
+    - name: backend
+      image: bharatai/backend:latest
+      ports:
+      - containerPort: 8000
+      env:
+      - name: DATABASE_URL
+        value: postgresql+psycopg2://postgres:postgres@bharatai-db:5432/bharatai
